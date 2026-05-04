@@ -21,16 +21,12 @@ export function findArbitrageOpportunities(
 
   for (const pair of pairs) {
     const pairPrices = prices.filter((p) => p.pair === pair);
-
     for (let i = 0; i < pairPrices.length; i++) {
       for (let j = 0; j < pairPrices.length; j++) {
         if (i === j) continue;
-
         const buyExchange = pairPrices[i];
         const sellExchange = pairPrices[j];
-
         const spread = calculateSpread(buyExchange.price, sellExchange.price);
-
         if (spread >= threshold) {
           opportunities.push({
             token: pair.split("/")[0], // e.g., "BTC"
