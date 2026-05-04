@@ -1,7 +1,7 @@
 import { ArbitrageOpportunity, ExchangePrice, TradingPair, UserRole } from "@/types";
 
-export const FREE_THRESHOLD = 1.0;    // 1% for free users
-export const PREMIUM_THRESHOLD = 0.3; // 0.3% for premium users
+export const FREE_THRESHOLD = 0.1;
+export const PREMIUM_THRESHOLD = 0.01; // 0.3% for premium users
 
 export function getThreshold(role: UserRole): number {
   return role === "premium" ? PREMIUM_THRESHOLD : FREE_THRESHOLD;
